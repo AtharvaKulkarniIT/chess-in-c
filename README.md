@@ -1,7 +1,10 @@
-# chess-in-c
+# ♟️ chess-in-c
 
 A complete chess game built in C for terminal play between two human players. Includes support for special moves like **castling**, **en passant**, **pawn promotion**, **resign**, and **draw offers**, along with **check** and **checkmate** detection.
 
+> ✨ *This project was built as my First Year Mini Project at VIT, Pune.*
+
+---
 
 ## 📌 Features
 
@@ -9,14 +12,14 @@ A complete chess game built in C for terminal play between two human players. In
 * Two-player terminal interface
 * **Special Moves**:
 
-  *  Castling (both king-side and queen-side)
-  *  En Passant
-  *  Pawn Promotion (to Q/R/B/N)
+  * Castling (both king-side and queen-side)
+  * En Passant
+  * Pawn Promotion (to Q/R/B/N)
 * **Game Outcomes**:
 
-  *  Checkmate
-  *  Draw offer (auto-accepted for now)
-  *  Resignation
+  * Checkmate
+  * Draw offer (auto-accepted for now)
+  * Resignation
 * ❇️ Board printed clearly with ranks/files and pieces
 
 ---
@@ -68,16 +71,16 @@ gcc chess.c -o chess
 * **Move format**: Enter moves like `e2e4`, `g8f6`, etc.
 * **Special commands**:
 
-  * `resign` → resign from game
-  * `draw` → offer a draw (auto-accepted for now)
-* **Promotion**: If a pawn reaches the last rank, you’ll be prompted to promote (e.g. `Q`, `N`, `R`, `B`)
-* **En Passant**: Automatically detected and allowed if applicable
+  * `resign` → Resign from the game
+  * `draw` → Offer a draw (auto-accepted currently)
+* **Promotion**: If a pawn reaches the last rank, you'll be prompted to promote (e.g., `Q`, `N`, `R`, `B`)
+* **En Passant**: Detected and allowed if conditions are met
 
 ---
 
-## 🎓 Example Demo Game (Standard Algebraic Input)
+## 🎓 Example Demo Game
 
-Here's a demo game played using this engine:
+Here’s a short sample demo session using this chess engine:
 
 ```
 White's move: e2e4
@@ -85,10 +88,18 @@ Black's move: e7e5
 White's move: g1f3
 Black's move: b8c6
 White's move: f1c4
-...
+Black's move: g8f6
+White's move: d2d4
+Black's move: e5d4
+White's move: e4e5
+Black's move: f6e4
+White's move: e1g1     <-- Castling!
+Black's move: d7d5
+White's move: e5d6     <-- En Passant!
 ...
 ```
 
+---
 
 ## 🛠️ Code Overview
 
@@ -98,14 +109,13 @@ White's move: f1c4
 | `printBoard()`    | Neatly prints current board       |
 | `getMoveInput()`  | Takes and interprets player input |
 | `movePiece()`     | Executes the move with rules      |
-| `isValidMove()`   | Checks legality                   |
+| `isValidMove()`   | Checks legality of move           |
 | `canCastle()`     | Handles castling logic            |
 | `isCheck()`       | Detects if king is in check       |
 | `isCheckmate()`   | Checks checkmate condition        |
-| `promotePawn()`   | Promotes pawn after 8th/1st rank  |
-| `isEnPassant()`   | Allows en passant if legal        |
+| `promotePawn()`   | Handles pawn promotion            |
+| `isEnPassant()`   | Allows en passant if applicable   |
 | `declareWinner()` | Ends game with winner or draw     |
-
 
 ---
 
